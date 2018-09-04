@@ -1,0 +1,17 @@
+import os
+from building import * 
+
+# get current dir path
+cwd = GetCurrentDir()
+
+# init src and inc vars
+src = []
+inc = []
+
+inc = inc + [cwd]
+src = src + Glob('./*.c')
+
+# add group to IDE project
+objs = DefineGroup('id3v2lib-1.0.0', src, depend = ['ID3V2LIB_USING_DEMO'], CPPPATH = inc)
+
+Return('objs') 
